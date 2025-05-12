@@ -53,7 +53,7 @@ public class TestBanco {
      */
     public static void mostrarSaldo(Cuenta cuenta) {
         System.out.println("La cuenta de " + cuenta.getCliente().getNombre()
-                + " tiene " + cuenta.getSaldo() + " euros");
+                + " tiene " + cuenta.getSaldo() + " euros.");
     }
 }
 
