@@ -1,5 +1,4 @@
 package es.cesur.practica;
-
 /**
  * Clase que representa un cliente del banco.
  */

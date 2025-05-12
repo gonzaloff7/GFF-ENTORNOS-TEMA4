@@ -1,6 +1,5 @@
 package es.cesur.practica;
 
-
 /**
  * Clase que representa una cuenta bancaria.
  */

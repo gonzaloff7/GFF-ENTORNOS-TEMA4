@@ -1,5 +1,4 @@
 package es.cesur.practica;
-
 /**
  * Clase principal que simula operaciones entre cuentas bancarias.
  */
