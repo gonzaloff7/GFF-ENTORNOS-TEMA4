@@ -1,6 +1,5 @@
 package es.cesur.practica;
 
-
 public class Cuenta {
 
     private int numeroCuenta;
