@@ -1,9 +1,16 @@
 package es.cesur.practica;
+
 /**
- * Clase principal que simula operaciones entre cuentas bancarias.
+ * Clase principal que simula operaciones entre cuentas bancarias de dos clientes, Antonio y Beatriz.
+ * Realiza operaciones como transferencias, ingresos y retiros de dinero, y consulta de saldos.
  */
 public class TestBanco {
 
+    /**
+     * Método principal que simula la interacción entre dos clientes en un banco.
+     * Antonio y Beatriz realizan varias operaciones bancarias como transferencias, ingresos y retiros.
+     * @param args Argumentos de línea de comandos (no utilizados en este caso).
+     */
     public static void main(String[] args) {
 
         // Antonio y Beatriz se hacen clientes del banco
@@ -47,7 +54,8 @@ public class TestBanco {
 
     /**
      * Muestra el saldo de una cuenta por consola.
-     *
+     * Este método se utiliza para imprimir el saldo de cualquier cuenta bancaria.
+     * 
      * @param cuenta La cuenta cuyo saldo se quiere mostrar
      */
     public static void mostrarSaldo(Cuenta cuenta) {
@@ -55,4 +63,3 @@ public class TestBanco {
                 + " tiene " + cuenta.getSaldo() + " euros.");
     }
 }
-
