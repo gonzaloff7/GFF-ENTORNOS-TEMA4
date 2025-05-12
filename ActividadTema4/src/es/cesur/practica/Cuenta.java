@@ -1,9 +1,11 @@
 package es.cesur.practica;
 
+
+
 /**
  * Clase que representa una cuenta bancaria.
  */
-   public class Cuenta {
+public class Cuenta {
     private int numeroCuenta;
     private double saldo;
     private Cliente cliente;
@@ -22,11 +24,20 @@ package es.cesur.practica;
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
     public Cliente getCliente() {
         return cliente;
     }
+
+    public void ingresar(double cantidad) {
+        if (cantidad > 0) {
+            saldo += cantidad;
+        }
+    }
+
+    public void retirar(double cantidad) {
+        if (cantidad > 0 && cantidad <= saldo) {
+            saldo -= cantidad;
+        }
+    }
+    
 }

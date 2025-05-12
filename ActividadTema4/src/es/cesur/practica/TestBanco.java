@@ -1,52 +1,59 @@
 package es.cesur.practica;
 
-public class TestBanco 
-{ 
-    public static void main(String[] args)  
-    { 
-        /* Antonio y Beatriz se hacen clientes del banco */    
-        Cliente antonio = new Cliente("123456789Z", "Antonio Alonso", "Av. Pueblo Saharaui, s/n");    
-        Cliente beatriz = new Cliente("987654321A", "Beatriz Benítez", "Calle Sol, 4");      
+/**
+ * Clase principal que simula operaciones entre cuentas bancarias.
+ */
+public class TestBanco {
 
-        /* Por defecto, todas las cuentas nuevas tienen 100€ */    
-        Cuenta cuentaAntonio = new Cuenta(48151, 100, antonio);    
-        Cuenta cuentaBeatriz = new Cuenta(62342, 100, beatriz);      
+    public static void main(String[] args) {
 
-        /* Antonio y Beatriz consultan el saldo */    
-        System.out.println("La cuenta de " + 
-        cuentaAntonio.getCliente().getNombre() + " tiene " + cuentaAntonio.getSaldo() + " euros.");    
-        System.out.println("La cuenta de " + 
-        cuentaBeatriz.getCliente().getNombre() + " tiene " + cuentaBeatriz.getSaldo() + " euros.");      
+        // Antonio y Beatriz se hacen clientes del banco
+        Cliente antonio = new Cliente("123456789Z", "Antonio Alonso", "Av. Pueblo Saharaui, s/n");
+        Cliente beatriz = new Cliente("987654321A", "Beatriz Benítez", "Calle Sol, 4");
 
-        /* Beatriz transfiere 50€ a Antonio */ 
-        cuentaBeatriz.setSaldo(cuentaBeatriz.getSaldo() - 50); 
-        cuentaAntonio.setSaldo(cuentaAntonio.getSaldo() + 50);      
+        // Por defecto, todas las cuentas nuevas tienen 100€
+        Cuenta cuentaDeAntonio = new Cuenta(48151, 100, antonio);
+        Cuenta cuentaDeBeatriz = new Cuenta(62342, 100, beatriz);
 
-        /* Antonio y Beatriz vuelven a consultar su saldo para comprobar que todo ha ido bien */    
-        System.out.println("La cuenta de " + 
-        cuentaAntonio.getCliente().getNombre() + " tiene " + cuentaAntonio.getSaldo() + " euros.");    
-        System.out.println("La cuenta de " + 
-        cuentaBeatriz.getCliente().getNombre() + " tiene " + cuentaBeatriz.getSaldo() + " euros.");      
+        // Consultar saldos iniciales
+        mostrarSaldo(cuentaDeAntonio);
+        mostrarSaldo(cuentaDeBeatriz);
 
-        /* Antonio gana 100€ en una rifa y lo ingresa en su cuenta */ 
-        cuentaAntonio.setSaldo(cuentaAntonio.getSaldo() + 100);      
+        // Beatriz transfiere 50€ a Antonio
+        cuentaDeBeatriz.retirar(50);
+        cuentaDeAntonio.ingresar(50);
 
-        /* Beatriz tiene que pagar 30€ a hacienda y retira el dinero */ 
-        cuentaBeatriz.setSaldo(cuentaBeatriz.getSaldo() - 30);                        
+        // Consultar saldos después de la transferencia
+        mostrarSaldo(cuentaDeAntonio);
+        mostrarSaldo(cuentaDeBeatriz);
 
-        /* Antonio y Beatriz consultan de nuevo el saldo de su cuenta. */ 
-        System.out.println("La cuenta de " + 
-        cuentaAntonio.getCliente().getNombre() + " tiene " + cuentaAntonio.getSaldo() + " euros.");    
-        System.out.println("La cuenta de " + 
-        cuentaBeatriz.getCliente().getNombre() + " tiene " + cuentaBeatriz.getSaldo() + " euros.");                          
+        // Antonio gana 100€ en una rifa
+        cuentaDeAntonio.ingresar(100);
 
-        /* Antonio transfiere 50€ a Beatriz y vuelven a consultar el saldo de su cuenta */ 
-        cuentaAntonio.setSaldo(cuentaAntonio.getSaldo() - 50); 
-        cuentaBeatriz.setSaldo(cuentaBeatriz.getSaldo() + 50); 
+        // Beatriz paga 30€ a Hacienda
+        cuentaDeBeatriz.retirar(30);
 
-        System.out.println("La cuenta de " + 
-        cuentaAntonio.getCliente().getNombre() + " tiene " + cuentaAntonio.getSaldo() + " euros.");    
-        System.out.println("La cuenta de " + 
-        cuentaBeatriz.getCliente().getNombre() + " tiene " + cuentaBeatriz.getSaldo() + " euros.");  
-    }  
+        // Consultar saldos tras movimientos
+        mostrarSaldo(cuentaDeAntonio);
+        mostrarSaldo(cuentaDeBeatriz);
+
+        // Antonio devuelve los 50€ a Beatriz
+        cuentaDeAntonio.retirar(50);
+        cuentaDeBeatriz.ingresar(50);
+
+        // Consultar saldos finales
+        mostrarSaldo(cuentaDeAntonio);
+        mostrarSaldo(cuentaDeBeatriz);
+    }
+
+    /**
+     * Muestra el saldo de una cuenta por consola.
+     *
+     * @param cuenta La cuenta cuyo saldo se quiere mostrar
+     */
+    public static void mostrarSaldo(Cuenta cuenta) {
+        System.out.println("La cuenta de " + cuenta.getCliente().getNombre()
+                + " tiene " + cuenta.getSaldo() + " euros");
+    }
 }
+
