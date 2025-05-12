@@ -1,6 +1,5 @@
 package es.cesur.practica;
 
-
 public class Cliente {
 
     private String dni;

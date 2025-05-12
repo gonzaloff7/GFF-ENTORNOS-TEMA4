@@ -2,8 +2,7 @@ package es.cesur.practica;
 
 
 public class TestBanco {
-
-   
+  
     public static void main(String[] args) {
 
         // Antonio y Beatriz se hacen clientes del banco
